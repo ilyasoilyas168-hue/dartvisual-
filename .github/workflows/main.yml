@@ -1,0 +1,32 @@
+name: Build DartVisual
+
+on:
+  push:
+    branches: [ "основной" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Unzip mod
+        run: unzip DartVisual-mod-src.zip
+
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+
+      - name: Build mod
+        run: |
+          cd dartvisual
+          chmod +x gradlew
+          ./gradlew build
+
+      - name: Upload JAR
+        uses: actions/upload-artifact@v3
+        with:
+          name: DartVisual-mod
+          path: dartvisual/build/libs/*.jar
