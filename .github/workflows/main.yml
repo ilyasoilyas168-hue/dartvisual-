@@ -16,7 +16,7 @@ jobs:
       - name: Build mod
         run: |
           ls -la
-         cd dartvisual
+          cd dartvisual
           ls -la
           chmod +x gradlew
           ./gradlew build
