@@ -15,8 +15,8 @@ jobs:
           distribution: 'temurin'
       - name: Build mod
         run: |
-          cd dartvisual
-          chmod +x gradlew
+          ls -lascd dartvisual
+          ls -chmod +x gradlew
           ./gradlew build
       - name: Upload JAR
         uses: actions/upload-artifact@v4
