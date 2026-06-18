@@ -5,7 +5,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Unzip mod
         run: unzip DartVisual-mod-src.zip
       - name: Setup Java
@@ -19,7 +19,7 @@ jobs:
           chmod +x gradlew
           ./gradlew build
       - name: Upload JAR
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: DartVisual-mod
           path: dartvisual/build/libs/*.jar
